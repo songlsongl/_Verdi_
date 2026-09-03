@@ -2,7 +2,19 @@
 sandbox for JTAG and ATPG SCAN chains
 
 track from RTL internal signals 
-register files implemented as latch arrays 
+register files implemented as latch arrays
+Combinational & sequential logic (scan chains)
+Pseudo-random (PRPG → scan chains → MISR/CRC)
+PRPG (Pseudo-Random Pattern Generator) shifts SCAN patterns into scan chains
+MISR/CRC compresses scan-out into a signature 
+compared against golden value
+Clock Modes:
+Runs during DFT boot; 
+uses yc_clock for at-speed capture
+Bootrecord-configured; 
+Master FSM handles init stages, 
+NOC transactions, 
+clock sequencing
 controlled via registers per cluster/region
 <chip>_<rev>_scan_<clk>_<patType>_<pkg>_<rev>
 Call chain: 
